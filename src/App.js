@@ -1,24 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import Producto from './Componentes/Producto';
+import { Container, Row } from 'reactstrap';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Row>
+      <Producto 
+      titulo="Disco Duro Estado Sólido"
+      imagen= "\assets\card_img1.jpg"
+      precio= "$400.000"
+      descripcion= "Disco duro de alto rendimiento"
+      />
+      <Producto
+      titulo="Audifonos"
+      imagen= "\assets\card_img2.jpg"
+      precio= "$50.000"
+      descripcion= "Audífonos con alta calidad de sonido"
+      />
+      <Producto
+      titulo="Audifonos"
+      imagen= "\assets\card_img2.jpg"
+      precio= "$50.000"
+      descripcion= "Audífonos con alta calidad de sonido"
+      />
+      <Producto
+      titulo="Audifonos"
+      imagen= "\assets\card_img2.jpg"
+      precio= "$50.000"
+      descripcion= "Audífonos con alta calidad de sonido"
+      />
+      </Row>
+    </Container>
   );
 }
 
