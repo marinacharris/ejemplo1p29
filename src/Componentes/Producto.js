@@ -3,7 +3,7 @@ import { Card, CardBody, CardImg, CardSubtitle, CardText, CardTitle, Col } from 
 import './Producto.css';
 function Producto(props){
     return(
-        <Col sm='3'>
+        <Col sm='2'>
             <Card className="Card" body outline color = "primary">
                 <CardImg src={props.imagen} />
                 <CardBody>
