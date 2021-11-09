@@ -2,38 +2,56 @@ import './App.css';
 import React from 'react';
 import Producto from './Componentes/Producto';
 import { Container, Row } from 'reactstrap';
+import CrearProducto from './Componentes/CrearProducto';
+//import {listaProductos} from './listaProductos'
 
-function App() {
+class App extends React.Component{
+  constructor(){
+    super();
+    this.state = {
+      titulo: '',
+      imagen: '',
+      precio: '',
+      descripcion: '',
+      stock: '',
+      listaProductos: []
+    };
+  }
+  componentDidMount(){
+    this.fetchProductos();
+  }
+  fetchProductos(){
+    fetch('http://localhost:4000/api/articulos')
+    .then(res =>  res.json())
+    .then(data =>{
+      this.setState({listaProductos:data})
+      console.log(this.state.listaProductos)
+    })
+  }
+  render(){
+    var arrayComponente= this.state.listaProductos.map(
+      (listaProductos, i) =>{
+        return(
+          <Producto
+            Key={i}
+            titulo={listaProductos.titulo}
+            imagen ={listaProductos.imagen}
+            descripcion ={listaProductos.descripcion}
+            precio = {listaProductos.precio}
+            stock ={listaProductos.stock}
+          />
+        )
+      }
+    )
   return (
     <Container>
       <Row>
-      <Producto 
-      titulo="Disco Duro Estado Sólido"
-      imagen= "\assets\card_img1.jpg"
-      precio= "$400.000"
-      descripcion= "Disco duro de alto rendimiento"
-      />
-      <Producto
-      titulo="Audifonos"
-      imagen= "\assets\card_img2.jpg"
-      precio= "$50.000"
-      descripcion= "Audífonos con alta calidad de sonido"
-      />
-      <Producto
-      titulo="Audifonos"
-      imagen= "\assets\card_img2.jpg"
-      precio= "$50.000"
-      descripcion= "Audífonos con alta calidad de sonido"
-      />
-      <Producto
-      titulo="Audifonos"
-      imagen= "\assets\card_img2.jpg"
-      precio= "$50.000"
-      descripcion= "Audífonos con alta calidad de sonido"
-      />
+        
+        {arrayComponente}
       </Row>
     </Container>
   );
+  }
 }
 
 export default App;
