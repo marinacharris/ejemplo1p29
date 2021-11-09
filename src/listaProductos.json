@@ -1,0 +1,79 @@
+{
+    "listaProductos":[
+        {
+            "titulo":"Disco Duro 512MB",
+            "imagen": "https://cdn.pixabay.com/photo/2013/03/02/02/40/backup-89186_960_720.jpg",
+            "descripcion": "Disco duro de alto rendimiento",
+            "precio": "$200.000",
+            "stock": 50
+        },
+        {
+            "titulo":"Audifonos",
+            "imagen": "https://cdn.pixabay.com/photo/2018/09/17/14/27/headphones-3683983__480.jpg",
+            "descripcion": "Audífonos con alta calidad de sonido",
+            "precio": "$50.000",
+            "stock": 20
+        },
+        {
+            "titulo":"Audifonos Inalámbricos",
+            "imagen": "\\assets\\card_img2.jpg",
+            "precio": "$100.000",
+            "descripcion": "Audífonos con alta calidad de sonido"
+        },
+        {
+            "titulo":"Disco Duro Estado s+olido 1T",
+            "imagen": "\\assets\\card_img1.jpg",
+            "precio": "$400.000",
+            "descripcion": "Disco Duro alto rendimiento"
+        },
+        {
+            "titulo":"Disco Duro Estado Sólido 512MB",
+            "imagen": "\\assets\\card_img1.jpg",
+            "precio": "$200.000",
+            "descripcion": "Disco duro de alto rendimiento"
+        },
+        {
+            "titulo":"Audifonos",
+            "imagen": "\\assets\\card_img2.jpg",
+            "precio": "$50.000",
+            "descripcion": "Audífonos con alta calidad de sonido"
+        },
+        {
+            "titulo":"Audifonos Inalámbricos",
+            "imagen": "\\assets\\card_img2.jpg",
+            "precio": "$100.000",
+            "descripcion": "Audífonos con alta calidad de sonido"
+        },
+        {
+            "titulo":"Disco Duro Estado s+olido 1T",
+            "imagen": "\\assets\\card_img1.jpg",
+            "precio": "$400.000",
+            "descripcion": "Disco Duro alto rendimiento"
+        },
+        {
+            "titulo":"Disco Duro Estado Sólido 512MB",
+            "imagen": "\\assets\\card_img1.jpg",
+            "precio": "$200.000",
+            "descripcion": "Disco duro de alto rendimiento"
+        },
+        {
+            "titulo":"Audifonos",
+            "imagen": "\\assets\\card_img2.jpg",
+            "precio": "$50.000",
+            "descripcion": "Audífonos con alta calidad de sonido"
+        },
+        {
+            "titulo":"Audifonos Inalámbricos",
+            "imagen": "\\assets\\card_img2.jpg",
+            "precio": "$100.000",
+            "descripcion": "Audífonos con alta calidad de sonido"
+        },
+        {
+            "titulo":"Disco Duro Estado s+olido 1T",
+            "imagen": "\\assets\\card_img1.jpg",
+            "precio": "$400.000",
+            "descripcion": "Disco Duro alto rendimiento"
+        }
+
+    ]
+}
