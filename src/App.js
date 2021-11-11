@@ -1,57 +1,28 @@
 import './App.css';
 import React from 'react';
-import Producto from './Componentes/Producto';
-import { Container, Row } from 'reactstrap';
+//import Producto from './Componentes/Producto';
+//import { Container, Row } from 'reactstrap';
+import { BrowserRouter as Router, Route} from 'react-router-dom';
 import CrearProducto from './Componentes/CrearProducto';
-//import {listaProductos} from './listaProductos'
+import ListarProductos from './Componentes/ListarProductos';
+import Navegacion from './Componentes/Navegacion';
+import Principal from './Componentes/Principal';
 
 class App extends React.Component{
-  constructor(){
-    super();
-    this.state = {
-      titulo: '',
-      imagen: '',
-      precio: '',
-      descripcion: '',
-      stock: '',
-      listaProductos: []
-    };
-  }
-  componentDidMount(){
-    this.fetchProductos();
-  }
-  fetchProductos(){
-    fetch('http://localhost:4000/api/articulos')
-    .then(res =>  res.json())
-    .then(data =>{
-      this.setState({listaProductos:data})
-      console.log(this.state.listaProductos)
-    })
-  }
   render(){
-    var arrayComponente= this.state.listaProductos.map(
-      (listaProductos, i) =>{
-        return(
-          <Producto
-            Key={i}
-            titulo={listaProductos.titulo}
-            imagen ={listaProductos.imagen}
-            descripcion ={listaProductos.descripcion}
-            precio = {listaProductos.precio}
-            stock ={listaProductos.stock}
-          />
-        )
-      }
-    )
-  return (
-    <Container>
-      <Row>
+    return (
+      <Router>
+        <Navegacion/>
+        <Route path="/crear" component = {CrearProducto}/>
+        <Route path="/listar" component = {ListarProductos}/>
+        <Route path="/" exact component = {Principal}/>
         
-        {arrayComponente}
-      </Row>
-    </Container>
-  );
+  
+      </Router>
+      
+    );
   }
+  
 }
 
 export default App;

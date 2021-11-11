@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 
-export default class CrearProducto extends Component {
+export class Principal extends Component {
     render() {
         return (
             <div>
-                Crear Producto
+                Esta es la página Principal
             </div>
         )
     }
 }
 
+export default Principal
