@@ -23,6 +23,34 @@ export default class CrearProducto extends Component {
 
     }
 
+    componentDidMount(){
+        this.fetchProductos();
+      }
+      fetchProductos(){
+        fetch('http://localhost:4000/api/articulos')
+        .then(res =>  res.json())
+        .then(data =>{
+          this.setState({productos:data})
+          console.log(this.state.productos)
+        })
+      }
+
+    deleteProducto(id){
+        fetch(`http://localhost:4000/api/articulos/${id}`,{
+            method:"DELETE",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            }
+        })
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data);
+            alert("Producto eliminado");
+            this.fetchProductos();
+        })
+    }
+
     agregarProducto(e){
         e.preventDefault();
         fetch("http://localhost:4000/api/articulos",{
@@ -105,7 +133,7 @@ export default class CrearProducto extends Component {
           </Col>
           <Col sm = "10">
               <h4>Lista de productos</h4>
-              <table>
+              <table className="table">
                   <thead>
                       <tr>
                           <th>Titulo</th>
@@ -131,7 +159,7 @@ export default class CrearProducto extends Component {
                                           this.editProducto(producto._id)
                                         }
                                         type="button"
-                                        className="btn btn-warning"
+                                        className="btn btn-info"
                                       >
                                         Editar
                                       </button>
