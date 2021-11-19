@@ -33,12 +33,12 @@ export class Navegacion extends Component {
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">
-                      Pricing
-                    </a>
+                    <Link className="nav-link" to="/crearUsuario">
+                      Crear Usuario
+                    </Link>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link disabled">Disabled</a>
+                   
                   </li>
                 </ul>
               </div>
