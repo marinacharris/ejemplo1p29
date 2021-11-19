@@ -87,7 +87,7 @@ export default class CrearProducto extends Component {
           "Content-Type": "application/json"
         },
       })
-        .then((res) => res.json)
+        .then(res => res.json)
         .then(data => {
           alert("Producto actualizado");
           this.setState({
@@ -109,8 +109,8 @@ export default class CrearProducto extends Component {
           "Content-Type": "application/json"
         },
       })
-        .then((res) => res.json())
-        .then((data) => {
+        .then(res => res.json())
+        .then(data => {
           console.log(data);
           alert("Producto creado");
           this.fetchProductos();
@@ -170,7 +170,7 @@ export default class CrearProducto extends Component {
                 type="number"
                 placeholder="Ingrese cantidad"
                 onChange={this.handleChange}
-                value={this.state.cantidad}
+                value={this.state.stock}
               />
             </div>
             <button type="submit" className="btn btn-primary">
