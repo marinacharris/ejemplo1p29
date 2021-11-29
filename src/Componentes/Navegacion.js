@@ -38,6 +38,9 @@ export class Navegacion extends Component {
                     </Link>
                   </li>
                   <li className="nav-item">
+                    <Link className="nav-link" to="/loginUsuario">
+                      Ingresar
+                    </Link>
                    
                   </li>
                 </ul>

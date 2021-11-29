@@ -1,17 +1,15 @@
 import React, { Component } from "react";
 import { Container } from "reactstrap";
-import {useHistory} from "react-router-dom"
 
-export class CrearUsuario extends Component {
+export class LoginUsuario extends Component {
   constructor() {
     super();
     this.state = {
-      username: "",
       email: "",
       password: "",
     };
     this.handleChange = this.handleChange.bind(this);
-    this.crearUsuario = this.crearUsuario.bind(this)
+    this.loginUsuario = this.loginUsuario.bind(this);
   }
 
   handleChange(e) {
@@ -21,44 +19,13 @@ export class CrearUsuario extends Component {
     });
   }
 
-  crearUsuario(e) {
-    const history = useHistory()
-    e.preventDefault();
-    fetch("http://localhost:4000/api/auth/signup", {
-      method: "POST",
-      body: JSON.stringify(this.state),
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-      }
-    })
-    .then(res => res.json())
-        .then(data => {
-          console.log(data);
-          alert("Usuario creado");
-          history.push('/loginUsuario')
+  loginUsuario() {}
 
-        });
-  }
   render() {
     return (
       <Container>
-        <h4>Crear usuario</h4>
-        <form onSubmit={this.crearUsuario} className="form-group">
-          <div className="mb-3">
-            <label for="lblUsuario" className="form-label">
-              Usuario
-            </label>
-            <input
-              name="username"
-              type="text"
-              className="form-control"
-              id="lblUsuario"
-              placeholder="Ingrese usuario"
-              onChange={this.handleChange}
-              value={this.state.username}
-            />
-          </div>
+        <h4>Ingresar</h4>
+        <form onSubmit={this.loginUsuario} className="form-group">          
           <div className="mb-3">
             <label for="lblemail" className="form-label">
               e-mail
@@ -78,7 +45,7 @@ export class CrearUsuario extends Component {
               Password
             </label>
             <input
-              name='password'
+              name="password"
               type="password"
               className="form-control"
               id="lblPassword"
@@ -89,7 +56,7 @@ export class CrearUsuario extends Component {
           </div>
           <div className="mb-3">
             <button type="submit" className="btn btn-primary">
-              Sign Up
+              Ingresar
             </button>
           </div>
         </form>
@@ -98,4 +65,4 @@ export class CrearUsuario extends Component {
   }
 }
 
-export default CrearUsuario;
+export default LoginUsuario;
