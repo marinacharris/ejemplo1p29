@@ -10,6 +10,7 @@ export class CrearUsuario extends Component {
       password: "",
     };
     this.handleChange = this.handleChange.bind(this);
+    this.crearUsuario = this.crearUsuario.bind(this)
   }
 
   handleChange(e) {
@@ -27,8 +28,14 @@ export class CrearUsuario extends Component {
       headers: {
         "Accept": "application/json",
         "Content-Type": "application/json",
-      },
-    });
+      }
+    })
+    .then(res => res.json())
+        .then(data => {
+          console.log(data);
+          alert("Usuario creado");
+
+        });
   }
   render() {
     return (
