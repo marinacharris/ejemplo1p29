@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { Container } from "reactstrap";
-import {useHistory} from "react-router-dom"
+
 
 export class CrearUsuario extends Component {
   constructor() {
     super();
     this.state = {
       username: "",
-      email: "",
+      email: "", 
       password: "",
     };
     this.handleChange = this.handleChange.bind(this);
@@ -22,8 +22,9 @@ export class CrearUsuario extends Component {
   }
 
   crearUsuario(e) {
-    const history = useHistory()
+    
     e.preventDefault();
+    
     fetch("http://localhost:4000/api/auth/signup", {
       method: "POST",
       body: JSON.stringify(this.state),
@@ -36,9 +37,11 @@ export class CrearUsuario extends Component {
         .then(data => {
           console.log(data);
           alert("Usuario creado");
-          history.push('/loginUsuario')
+          window.location.href = '/loginUsuario'
+          
 
         });
+
   }
   render() {
     return (

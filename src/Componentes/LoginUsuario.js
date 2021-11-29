@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Container } from "reactstrap";
 
+
 export class LoginUsuario extends Component {
   constructor() {
     super();
@@ -19,7 +20,30 @@ export class LoginUsuario extends Component {
     });
   }
 
-  loginUsuario() {}
+  loginUsuario(e) {
+      e.preventDefault()
+      const response = fetch("http://localhost:4000/api/auth/signin",{
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+              email: this.state.email,
+              password: this.state.password,
+          })
+
+      })
+
+      const data =  response.json
+      console.log(data)
+      if (data){
+          localStorage.setItem('token', data)
+          alert('Login exitoso')
+      }else{
+          alert('verifique su usario y contraseña')
+      }
+
+      
+
+  }
 
   render() {
     return (
