@@ -40,7 +40,8 @@ export default class CrearProducto extends Component {
         fetch(`http://localhost:4000/api/articulos/${id}`, {
       method: "DELETE",
       headers: {
-        Accept: "application/json",
+        "x-access-token": localStorage.getItem('tok'),
+        "Accept": "application/json",
         "Content-Type": "application/json",
       },
     })
@@ -83,6 +84,7 @@ export default class CrearProducto extends Component {
           stock: this.state.stock
         }),
         headers: {
+          "x-access-token": localStorage.getItem('tok'),
           "Accept": "application/json",
           "Content-Type": "application/json"
         },
@@ -105,6 +107,7 @@ export default class CrearProducto extends Component {
         method: "POST",
         body: JSON.stringify(this.state),
         headers: {
+          "x-access-token": localStorage.getItem('tok'),
           "Accept": "application/json",
           "Content-Type": "application/json"
         },

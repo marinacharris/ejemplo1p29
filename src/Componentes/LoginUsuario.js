@@ -8,6 +8,7 @@ export class LoginUsuario extends Component {
     this.state = {
       email: "",
       password: "",
+      token:""
     };
     this.handleChange = this.handleChange.bind(this);
     this.loginUsuario = this.loginUsuario.bind(this);
@@ -22,24 +23,32 @@ export class LoginUsuario extends Component {
 
   loginUsuario(e) {
       e.preventDefault()
-      const response = fetch("http://localhost:4000/api/auth/signin",{
+      fetch("http://localhost:4000/api/auth/signin",{
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({
-              email: this.state.email,
-              password: this.state.password,
-          })
+          body: JSON.stringify(
+              this.state
+          )
 
-      })
-
-      const data =  response.json
-      console.log(data)
-      if (data){
-          localStorage.setItem('token', data)
+      }).then(res => res.json())
+      .then(data =>{
+        this.setState({token:data})
+        console.log(this.state.token);
+        if (data.message === "Clave incorrecta"){
+          alert('verifique su usario y/o contraseña')
+        }else{
+         
+          localStorage.setItem('tok', data.token)
           alert('Login exitoso')
-      }else{
-          alert('verifique su usario y contraseña')
-      }
+          alert(localStorage.getItem('tok'))
+          window.location.href = '/crear'
+          
+        
+          
+        }
+      })
+     
+      
 
       
 
