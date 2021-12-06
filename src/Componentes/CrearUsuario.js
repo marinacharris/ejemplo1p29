@@ -25,7 +25,7 @@ export class CrearUsuario extends Component {
     
     e.preventDefault();
     
-    fetch("http://localhost:4000/api/auth/signup", {
+    fetch("https://backend3157.herokuapp.com/api/auth/signup", {
       method: "POST",
       body: JSON.stringify(this.state),
       headers: {

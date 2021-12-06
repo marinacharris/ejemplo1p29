@@ -18,7 +18,7 @@ export class ListarProductos extends Component {
         this.fetchProductos();
       }
       fetchProductos(){
-        fetch('http://localhost:4000/api/articulos')
+        fetch('https://backend3157.herokuapp.com/api/articulos')
         .then(res =>  res.json())
         .then(data =>{
           this.setState({listaProductos:data})
