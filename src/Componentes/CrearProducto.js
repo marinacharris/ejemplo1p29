@@ -27,7 +27,7 @@ export default class CrearProducto extends Component {
     this.fetchProductos();
   }
   fetchProductos() {
-    fetch("http://localhost:4000/api/articulos")
+    fetch("https://backend3157.herokuapp.com/api/articulos")
       .then((res) => res.json())
       .then((data) => {
         this.setState({ productos: data });
@@ -37,7 +37,7 @@ export default class CrearProducto extends Component {
 
   deleteProducto(id) {
     if(window.confirm('Realmente desea eliminar el producto?')){
-        fetch(`http://localhost:4000/api/articulos/${id}`, {
+        fetch(`https://backend3157.herokuapp.com/api/articulos/${id}`, {
       method: "DELETE",
       headers: {
         "x-access-token": localStorage.getItem('tok'),
@@ -56,7 +56,7 @@ export default class CrearProducto extends Component {
   }
 
   editProducto(id) {
-    fetch(`http://localhost:4000/api/articulos/${id}`)
+    fetch(`https://backend3157.herokuapp.com/api/articulos/${id}`)
       .then(res => res.json())
       .then(data => {
         console.log(data);
@@ -74,7 +74,7 @@ export default class CrearProducto extends Component {
   agregarProducto(e) {
     e.preventDefault();
     if (this.state._id) {
-      fetch(`http://localhost:4000/api/articulos/${this.state._id}`, {
+      fetch(`https://backend3157.herokuapp.com/api/articulos/${this.state._id}`, {
         method: "PUT",
         body: JSON.stringify({
           titulo: this.state.titulo,
@@ -103,7 +103,7 @@ export default class CrearProducto extends Component {
           this.fetchProductos();
         });
     } else {
-      fetch("http://localhost:4000/api/articulos", {
+      fetch("https://backend3157.herokuapp.com/api/articulos", {
         method: "POST",
         body: JSON.stringify(this.state),
         headers: {
